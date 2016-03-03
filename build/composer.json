@@ -1,0 +1,28 @@
+{
+  "name": "OpenBiz/OpenBiz",
+  "description": "The OpenBiz build.",
+  "authors": [
+    {
+      "name": "Joseph Zhao",
+      "email": "joseph.zhao@xing.net.au"
+    }
+  ],
+  "require-dev": {
+    "drush/drush":                "7.*",
+    "phing/phing":                "2.*",
+    "jakoch/phantomjs-installer": "2.*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "bin-dir": "bin"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ],
+    "post-update-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ]
+  }
+}

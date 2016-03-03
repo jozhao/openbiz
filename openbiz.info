@@ -1,0 +1,178 @@
+name = OpenBiz
+description = OpenBiz Distribution with Drupal Commerce and eWay payment pre-configured for use.
+distribution_name = OpenBiz
+version = VERSION
+core = 7.x
+exclusive = TRUE
+
+
+; Core
+
+dependencies[] = block
+dependencies[] = color
+dependencies[] = contextual
+dependencies[] = contact
+dependencies[] = dashboard
+dependencies[] = dblog
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = syslog
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = field
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+dependencies[] = update
+
+
+; Contrib
+
+dependencies[] = admin_menu
+dependencies[] = adminimal_admin_menu
+dependencies[] = backup_migrate
+dependencies[] = ctools
+dependencies[] = ckeditor
+dependencies[] = context
+dependencies[] = context_ui
+dependencies[] = chosen
+dependencies[] = crumbs
+dependencies[] = date
+dependencies[] = date_popup
+dependencies[] = date_api
+dependencies[] = ds
+dependencies[] = ds_ui
+dependencies[] = entity
+dependencies[] = entitycache
+dependencies[] = entityreference
+dependencies[] = environment_indicator
+dependencies[] = features
+dependencies[] = feeds
+dependencies[] = feeds_ui
+dependencies[] = feeds_import
+dependencies[] = field_group
+dependencies[] = file_entity
+dependencies[] = fontyourface
+dependencies[] = globalredirect
+dependencies[] = googleanalytics
+dependencies[] = inline_entity_form
+dependencies[] = insert
+dependencies[] = job_scheduler
+dependencies[] = libraries
+dependencies[] = link
+dependencies[] = menu_block
+dependencies[] = media
+dependencies[] = message
+dependencies[] = message_notify
+dependencies[] = metatag
+dependencies[] = module_filter
+dependencies[] = page_manager
+dependencies[] = panels
+dependencies[] = panels_ipe
+dependencies[] = pathauto
+dependencies[] = redirect
+dependencies[] = strongarm
+dependencies[] = token
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = views_content
+dependencies[] = xmlsitemap
+
+; Contrib - Security
+
+dependencies[] = password_policy
+dependencies[] = seckit
+dependencies[] = shield
+dependencies[] = securepages
+dependencies[] = login_security
+dependencies[] = username_enumeration_prevention
+
+
+; Contrib - Search
+
+dependencies[] = facetapi
+dependencies[] = search_api
+dependencies[] = search_api_db
+dependencies[] = search_api_views
+dependencies[] = search_api_facetapi
+dependencies[] = search_api_ranges
+dependencies[] = search404
+
+
+; Commerce dependencies.
+
+dependencies[] = addressfield
+dependencies[] = date_views
+dependencies[] = entity_token
+dependencies[] = eva
+dependencies[] = inline_conditions
+dependencies[] = rules
+dependencies[] = rules_admin
+dependencies[] = views_megarow
+dependencies[] = views_bulk_operations
+
+
+; Commerce modules - core.
+
+dependencies[] = commerce
+dependencies[] = commerce_ui
+dependencies[] = commerce_cart
+dependencies[] = commerce_checkout
+dependencies[] = commerce_customer
+dependencies[] = commerce_customer_ui
+dependencies[] = commerce_line_item
+dependencies[] = commerce_line_item_ui
+dependencies[] = commerce_price
+dependencies[] = commerce_order
+dependencies[] = commerce_order_ui
+dependencies[] = commerce_payment
+dependencies[] = commerce_payment_ui
+dependencies[] = commerce_shipping
+dependencies[] = commerce_shipping_ui
+dependencies[] = commerce_product
+dependencies[] = commerce_product_ui
+dependencies[] = commerce_product_pricing
+dependencies[] = commerce_product_pricing_ui
+dependencies[] = commerce_product_reference
+dependencies[] = commerce_tax
+dependencies[] = commerce_tax_ui
+
+
+; Commerce modules - contribs.
+
+dependencies[] = commerce_addressbook
+dependencies[] = commerce_add_to_cart_confirmation
+dependencies[] = commerce_backoffice
+dependencies[] = commerce_backoffice_product
+dependencies[] = commerce_backoffice_order
+dependencies[] = commerce_backoffice_content
+dependencies[] = commerce_checkout_progress
+dependencies[] = commerce_checkout_redirect
+dependencies[] = commerce_discount
+dependencies[] = commerce_discount_date
+dependencies[] = commerce_features
+dependencies[] = commerce_message
+dependencies[] = commerce_autosku
+
+
+; openBiz modules.
+
+dependencies[] = eway_integration
+dependencies[] = eway_integration_commerce
+dependencies[] = eway_integration_commerce_dc
+
+
+; System Requirements.
+
+php_memory_limit = 256M
+
+
+; Files.
+
+files[] = openbiz.profile

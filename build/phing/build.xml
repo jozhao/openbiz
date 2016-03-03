@@ -1,0 +1,227 @@
+<project name="openbiz" default="build:local" phingVersion="2.8.2">
+
+    <!-- Additional task classes -->
+    <includepath classpath="${project.basedir}/phingcludes"/>
+    <taskdef name="behat" classname="phingcludes.BehatTask"/>
+    <taskdef name="drush" classname="phingcludes.DrushTask"/>
+
+    <!--               -->
+    <!--  Properties   -->
+    <!-- ============= -->
+
+    <!-- Application -->
+    <property name="repo.root.relative" value="${project.basedir}/../.."/>
+    <resolvepath propertyName="repo.root" file="${repo.root.relative}"/>
+
+    <property name="docroot" value="${repo.root}/docroot" override="true"/>
+    <property name="drupal.profile" value="openbiz" override="true"/>
+    <property name="profile.root" value="${docroot}/profiles/${drupal.profile}"/>
+
+    <property name="site.name" value="openbiz"/>
+    <property name="site.mail" value="root@[127.0.0.1]"/>
+    <property name="drupal.makefile" value="${repo.root}/build-${phing.project.name}.make" override="true"/>
+    <property name="drupal.contrib_makefile" value="${repo.root}/drupal-org.make" override="true"/>
+    <property name="drupal.base_url" value="http://localhost/"/>
+
+    <property name="profile.modules.custom.path" value="${repo.root}/modules" override="true"/>
+    <property name="profile.themes.path" value="${repo.root}themes" override="true"/>
+    <property name="docroot.profile.modules.path" value="${docroot}/profiles/${drupal.profile}/modules"/>
+    <property name="docroot.profile.themes.path" value="${docroot}/profiles/${drupal.profile}/themes"/>
+    <property name="docroot.sites" value="${docroot}/sites"/>
+    <property name="openbiz.sites" value="${repo.root}/sites"/>
+
+    <!-- Credentials -->
+    <property name="db.username" value="root"/>
+    <property name="db.password" value=""/>
+    <property name="db.name" value="openbiz"/>
+    <property name="db.host" value="localhost"/>
+    <property name="db.port" value="3306"/>
+    <property name="account.name" value="admin"/>
+    <property name="account.password" value="password"/>
+    <property name="account.mail" value="root@[127.0.0.1]"/>
+
+    <!-- Drush, Composer & Behat -->
+    <property name="composer.bin" value="${repo.root}/build/bin"/>
+    <property name="drush.bin" value="${composer.bin}/drush" override="true"/>
+    <property name="drush.root" value="${docroot}"/>
+    <property name="drush.source" value="@${phing.project.name}.dev" override="true"/>
+    <property name="drush.file" value="${phing.project.name}.aliases.drushrc.php" override="true"/>
+
+    <!-- We override this so Drupal install works -->
+    <property name="drush.cmd" value="${drush.bin} -r ${docroot}" override="true"/>
+
+    <!-- The following allows local overrides. -->
+    <property file="${project.basedir}/build.properties" override="true"/>
+
+    <!--               -->
+    <!-- Filesets      -->
+    <!-- ============= -->
+    <fileset dir="${docroot}" id="custom.files" expandsymboliclinks="true">
+        <include name="sites/all/modules/**"/>
+    </fileset>
+
+    <fileset dir="${repo.root}/modules" id="openbiz.modules">
+        <include name="custom/**"/>
+        <include name="features/**"/>
+    </fileset>
+
+    <fileset dir="${repo.root}" id="openbiz.profile">
+        <include name="openbiz.*"/>
+        <include name="js/**"/>
+        <include name="images/**"/>
+        <include name="css"/>
+    </fileset>
+
+    <fileset dir="${repo.root}/themes" id="openbiz.themes">
+        <include name="**"/>
+    </fileset>
+
+    <!--               -->
+    <!-- Targets       -->
+    <!-- ============= -->
+
+    <target name="build:local"
+            description="Build the project without removing uncommitted changes."
+            depends="make:local, overwrite:profile-files, install">
+        <property name="build.local" value="1"/>
+    </target>
+
+    <target name="rm-docroot"
+            description="Remove the docroot folder">
+        <exec command="git clean -fd"
+              logoutput="true"
+              passthru="true"/>
+        <if>
+            <available property="docroot.exists" file="${docroot}" type="dir"/>
+            <then>
+                <if>
+                    <available property="docroot.sites.exists" file="${docroot}/sites/default" type="dir"/>
+                    <then>
+                        <chmod file="${docroot}/sites/default" mode="2775"/>
+                    </then>
+                </if>
+                <phingcall target="make:sites"/>
+                <delete dir="${docroot}"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="make:sites">
+        <!-- Setup the sites directory outside of docroot so that future compilations
+             don't remove customisations make to the sites directory -->
+        <property name="sites.available" value="false"/>
+        <available file="${openbiz.sites}" property="sites.available" type="dir"/>
+        <if>
+            <isfalse value="${sites.available}"/>
+            <then>
+                <copy todir="${openbiz.sites}">
+                    <fileset dir="${docroot.sites}">
+                        <include name="**"/>
+                    </fileset>
+                </copy>
+            </then>
+        </if>
+
+        <!-- Must remove both directory (1st time attempt) and symlink (every other attempt) -->
+        <delete dir="${docroot.sites}" file="${docroot.sites}"/>
+        <symlink link="${docroot.sites}" target="../sites"/>
+    </target>
+
+    <!-- Use the local make files rather than checking out from the repository -->
+    <!-- This avoids us overwriting the local make file with the master -->
+    <target name="make:local"
+            description="Run drush make in a development context"
+            depends="rm-docroot">
+
+        <drush command="make" assume="yes" verbose="TRUE">
+            <option name="concurrency">8</option>
+            <option name="no-recursion"/>
+            <param>"${drupal.makefile}"</param>
+            <param>"${docroot}"</param>
+        </drush>
+
+        <drush command="make" assume="yes" verbose="TRUE">
+            <option name="concurrency">8</option>
+            <option name="no-recursion"/>
+            <option name="no-core"/>
+            <option name="contrib-destination">profiles/${drupal.profile}</option>
+            <param>"${drupal.contrib_makefile}"</param>
+            <param>"${docroot}"</param>
+        </drush>
+    </target>
+
+    <!-- When building locally, we clean out all the profile files and copy across, rather than relying on make. -->
+    <target name="overwrite:profile-files">
+
+        <delete>
+            <fileset dir="${profile.root}">
+                <include name="openbiz.*"/>
+                <include name="js/**"/>
+                <include name="images/**"/>
+                <include name="css/**"/>
+            </fileset>
+        </delete>
+        <copy todir="${profile.root}">
+            <fileset refid="openbiz.profile"/>
+        </copy>
+
+        <delete dir="${docroot.profile.modules.path}/custom"/>
+        <delete dir="${docroot.profile.modules.path}/features"/>
+        <copy todir="${docroot.profile.modules.path}">
+            <fileset refid="openbiz.modules"/>
+        </copy>
+
+
+        <delete dir="${docroot.profile.themes.path}/openbiz"/>
+        <copy todir="${docroot.profile.themes.path}">
+            <fileset refid="openbiz.themes"/>
+        </copy>
+    </target>
+
+    <!-- Ensure the Drush make files will compile on Drupal.org. -->
+    <target name="validate:makefile"
+            description="Ensures Drush make will run."
+            depends="prepare:drupalorg-drush">
+
+        <drush command="verify-makefile" assume="yes" verbose="TRUE">
+            <param>"${repo.root}/drupal-org.make"</param>
+        </drush>
+    </target>
+
+    <target name="prepare:drupalorg-drush">
+        <drush command="pm-download" assume="yes" verbose="TRUE">
+            <option name="destination">"${user.home}/.drush"</option>
+            <option name="default-major">"7"</option>
+            <option name="dev"/>
+            <param>"drupalorg_drush"</param>
+        </drush>
+
+        <drush command="cache-clear" assume="yes" verbose="TRUE">
+            <param>"drush"</param>
+        </drush>
+    </target>
+
+    <!-- Install openbiz. -->
+    <target name="install"
+            description="Installs Drupal using the openbiz profile">
+        <drush command="site-install" assume="yes" verbose="TRUE">
+            <option name="db-url">"mysql://${db.username}:${db.password}@${db.host}:${db.port}/${db.name}"</option>
+            <option name="site-name">"${site.name}"</option>
+            <option name="debug"/>
+            <option name="site-mail">"${site.mail}"</option>
+            <option name="account-name">"${account.name}"</option>
+            <option name="account-mail">"${account.mail}"</option>
+            <param>"${drupal.profile}"</param>
+        </drush>
+    </target>
+
+    <!-- Ensure openbiz doesn't have any modules requiring security updates. -->
+    <target name="test:security-updates"
+            description="Checks an installed site for security updates on modules">
+        <exec dir="${docroot}"
+              command="! ${drush.bin} -n ups --check-disabled --security-only 2>/dev/null | grep 'SECURITY UPDATE'"
+              logoutput="true"
+              checkreturn="true"
+              passthru="true"/>
+    </target>
+</project>
