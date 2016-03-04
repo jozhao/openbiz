@@ -144,6 +144,7 @@ projects[pathauto][version] = 1.3
 projects[variable][version] = 2.5
 projects[i18n][version] = "1.13"
 projects[lingotek][version] = 6.02
+projects[l10n_update][version] = 2.0
 
 ; Security
 

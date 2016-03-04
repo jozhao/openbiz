@@ -63,6 +63,7 @@ dependencies[] = globalredirect
 dependencies[] = googleanalytics
 dependencies[] = inline_entity_form
 dependencies[] = insert
+dependencies[] = l10n_update
 dependencies[] = job_scheduler
 dependencies[] = libraries
 dependencies[] = link
