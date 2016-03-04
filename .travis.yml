@@ -9,6 +9,7 @@ php:
 # Build matrix options
 matrix:
   allow_failures:
+    - php: 7
     - php: hhvm
   fast_finish: true
 
