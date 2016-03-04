@@ -167,7 +167,7 @@ projects[adminimal_theme][version] = "1.24"
 ; Libraries
 
 libraries[chosen][download][type] = "get"
-libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/1.5.1/chosen_v1.5.1.zip"
+libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/v1.5.1/chosen_v1.5.1.zip"
 libraries[chosen][directory_name] = "chosen"
 libraries[chosen][type] = "library"
 
