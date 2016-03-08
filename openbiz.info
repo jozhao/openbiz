@@ -89,7 +89,6 @@ dependencies[] = page_manager
 dependencies[] = panels
 dependencies[] = panels_ipe
 dependencies[] = pathauto
-dependencies[] = pathauto
 dependencies[] = plupload
 dependencies[] = strongarm
 dependencies[] = token
