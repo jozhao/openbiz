@@ -48,6 +48,7 @@ dependencies[] = date_popup
 dependencies[] = date_api
 dependencies[] = ds
 dependencies[] = ds_ui
+dependencies[] = diff
 dependencies[] = entity
 dependencies[] = entitycache
 dependencies[] = entityreference
@@ -58,6 +59,7 @@ dependencies[] = feeds_ui
 dependencies[] = feeds_import
 dependencies[] = field_group
 dependencies[] = file_entity
+dependencies[] = fivestar
 dependencies[] = fontyourface
 dependencies[] = globalredirect
 dependencies[] = googleanalytics
@@ -84,6 +86,7 @@ dependencies[] = views
 dependencies[] = views_ui
 dependencies[] = views_content
 dependencies[] = xmlsitemap
+
 
 ; Contrib - Security
 
@@ -149,17 +152,20 @@ dependencies[] = commerce_tax_ui
 
 dependencies[] = commerce_addressbook
 dependencies[] = commerce_add_to_cart_confirmation
+dependencies[] = commerce_autosku
 dependencies[] = commerce_backoffice
 dependencies[] = commerce_backoffice_product
 dependencies[] = commerce_backoffice_order
 dependencies[] = commerce_backoffice_content
+dependencies[] = commerce_bank_transfer
 dependencies[] = commerce_checkout_progress
 dependencies[] = commerce_checkout_redirect
 dependencies[] = commerce_discount
 dependencies[] = commerce_discount_date
 dependencies[] = commerce_features
+dependencies[] = commerce_paypal
+dependencies[] = commerce_search_api
 dependencies[] = commerce_message
-dependencies[] = commerce_autosku
 
 
 ; openBiz modules.
