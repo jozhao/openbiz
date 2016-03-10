@@ -207,7 +207,7 @@ libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEd
 libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][type] = "library"
 
-libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://internode.dl.sourceforge.net/project/simplehtmldom/simplehtmldom/1.5/simplehtmldom_1_5.zip"
-libraries[ckeditor][directory_name] = "simplehtmldom"
-libraries[ckeditor][type] = "library"
+libraries[simplehtmldom][download][type] = "get"
+libraries[simplehtmldom][download][url] = "http://internode.dl.sourceforge.net/project/simplehtmldom/simplehtmldom/1.5/simplehtmldom_1_5.zip"
+libraries[simplehtmldom][directory_name] = "simplehtmldom"
+libraries[simplehtmldom][type] = "library"
