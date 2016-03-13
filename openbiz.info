@@ -103,6 +103,7 @@ dependencies[] = xmlsitemap
 
 ; Contrib - Security
 
+dependencies[] = captcha
 dependencies[] = honeypot
 dependencies[] = password_policy
 dependencies[] = recaptcha

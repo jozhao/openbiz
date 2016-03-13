@@ -144,6 +144,7 @@ projects[l10n_update][version] = 2.0
 
 ; Security
 
+projects[captcha][version] = "1.3"
 projects[honeypot][version] = "1.21"
 projects[login_security][version] = "1.9"
 projects[logintoboggan][version] = "1.5"
