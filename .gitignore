@@ -43,6 +43,8 @@ build.properties
 vendor
 behat.local.yml
 .php-version
+docroot
+sites
 
 # Generated files #
 ###################
