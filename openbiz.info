@@ -14,42 +14,36 @@ dependencies[] = contextual
 dependencies[] = contact
 dependencies[] = dashboard
 dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
 dependencies[] = help
 dependencies[] = image
-dependencies[] = locale
 dependencies[] = list
 dependencies[] = menu
 dependencies[] = number
 dependencies[] = options
 dependencies[] = path
-dependencies[] = taxonomy
 dependencies[] = syslog
 dependencies[] = search
 dependencies[] = shortcut
-dependencies[] = field
-dependencies[] = field_ui
-dependencies[] = file
-dependencies[] = rdf
+dependencies[] = taxonomy
 dependencies[] = update
 
 
 ; Contrib
 
+dependencies[] = admin_views
 dependencies[] = admin_menu
 dependencies[] = adminimal_admin_menu
-dependencies[] = backup_migrate
 dependencies[] = block_class
+dependencies[] = chosen
 dependencies[] = ctools
 dependencies[] = ckeditor
-dependencies[] = context
-dependencies[] = context_ui
-dependencies[] = chosen
 dependencies[] = crumbs
 dependencies[] = date
-dependencies[] = date_popup
-dependencies[] = date_api
 dependencies[] = ds
-dependencies[] = ds_ui
 dependencies[] = diff
 dependencies[] = entity
 dependencies[] = entitycache
@@ -65,13 +59,10 @@ dependencies[] = field_group
 dependencies[] = file_entity
 dependencies[] = fivestar
 dependencies[] = flag
-dependencies[] = fontyourface
 dependencies[] = globalredirect
 dependencies[] = googleanalytics
 dependencies[] = inline_entity_form
 dependencies[] = insert
-dependencies[] = i18n
-dependencies[] = l10n_update
 dependencies[] = job_scheduler
 dependencies[] = libraries
 dependencies[] = link
@@ -103,15 +94,10 @@ dependencies[] = xmlsitemap
 
 ; Contrib - Security
 
-dependencies[] = captcha
 dependencies[] = honeypot
-dependencies[] = password_policy
-dependencies[] = recaptcha
+dependencies[] = logintoboggan
 dependencies[] = seckit
 dependencies[] = shield
-dependencies[] = securepages
-dependencies[] = login_security
-dependencies[] = logintoboggan
 dependencies[] = username_enumeration_prevention
 
 
@@ -120,6 +106,7 @@ dependencies[] = username_enumeration_prevention
 dependencies[] = facetapi
 dependencies[] = search_api
 dependencies[] = search_api_db
+dependencies[] = search_api_page
 dependencies[] = search_api_views
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_ranges
