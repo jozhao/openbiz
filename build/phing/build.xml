@@ -171,7 +171,6 @@
             <fileset refid="openbiz.modules"/>
         </copy>
 
-
         <delete dir="${docroot.profile.themes.path}/openbiz"/>
         <copy todir="${docroot.profile.themes.path}">
             <fileset refid="openbiz.themes"/>

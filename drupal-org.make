@@ -197,12 +197,17 @@ projects[adminimal_theme][version] = "1.24"
 
 ; Libraries
 
-libraries[chosen][download][type] = "get"
-libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/v1.5.1/chosen_v1.5.1.zip"
-libraries[chosen][directory_name] = "chosen"
-libraries[chosen][type] = "library"
+;libraries[chosen][download][type] = "get"
+;libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/v1.5.1/chosen_v1.5.1.zip"
+;libraries[chosen][directory_name] = "chosen"
+;libraries[chosen][type] = "library"
 
-libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.7/ckeditor_4.5.7_full.zip"
-libraries[ckeditor][directory_name] = "ckeditor"
-libraries[ckeditor][type] = "library"
+;libraries[ckeditor][download][type] = "get"
+;libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.7/ckeditor_4.5.7_full.zip"
+;libraries[ckeditor][directory_name] = "ckeditor"
+;libraries[ckeditor][type] = "library"
+
+;libraries[plupload][download][type] = "get"
+;libraries[plupload][download][url] = "https://github.com/moxiecode/plupload/archive/v1.5.8.zip"
+;libraries[plupload][directory_name] = "plupload"
+;libraries[plupload][type] = "library"
