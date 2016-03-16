@@ -99,8 +99,8 @@ dependencies[] = xmlsitemap
 
 dependencies[] = honeypot
 dependencies[] = logintoboggan
+dependencies[] = paranoia
 dependencies[] = seckit
-dependencies[] = shield
 dependencies[] = username_enumeration_prevention
 
 
