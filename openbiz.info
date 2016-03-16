@@ -85,6 +85,7 @@ dependencies[] = plupload
 dependencies[] = redirect
 dependencies[] = r4032login
 dependencies[] = strongarm
+dependencies[] = sharethis
 dependencies[] = token
 dependencies[] = variable
 dependencies[] = views
