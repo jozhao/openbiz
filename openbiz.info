@@ -102,6 +102,7 @@ dependencies[] = honeypot
 dependencies[] = logintoboggan
 dependencies[] = paranoia
 dependencies[] = seckit
+dependencies[] = spamspan
 dependencies[] = username_enumeration_prevention
 
 
