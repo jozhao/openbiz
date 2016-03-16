@@ -110,6 +110,7 @@ dependencies[] = search_api_page
 dependencies[] = search_api_views
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_ranges
+dependencies[] = search_api_sorts
 dependencies[] = search404
 
 
