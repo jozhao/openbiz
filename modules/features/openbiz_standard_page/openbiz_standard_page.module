@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OpenBiz Standard Page feature.
+ */
+
+include_once 'openbiz_standard_page.features.inc';

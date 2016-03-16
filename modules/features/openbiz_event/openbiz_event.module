@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OpenBiz Event feature.
+ */
+
+include_once 'openbiz_event.features.inc';

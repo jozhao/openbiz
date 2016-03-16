@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OpenBiz News feature.
+ */
+
+include_once 'openbiz_news.features.inc';

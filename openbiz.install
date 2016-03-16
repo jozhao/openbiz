@@ -189,9 +189,9 @@ function _openbiz_install_basic_roles_perms() {
 
   // Site builder.
   $roles['Site builder'] = array(
-      'name' => 'Site builder',
-      'weight' => $weight++,
-      'permissions' => $extended_permissions,
+    'name' => 'Site builder',
+    'weight' => $weight++,
+    'permissions' => $extended_permissions,
   );
 
   // Create the roles.
@@ -330,6 +330,8 @@ function _openbiz_install_cleanup() {
   node_access_rebuild();
   // Clear cache.
   cache_clear_all();
+  // Revert features.
+  features_revert(array('openbiz_product' => array('commerce_autosku_patterns')));
 }
 
 /**

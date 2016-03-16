@@ -171,13 +171,21 @@ dependencies[] = commerce_features
 dependencies[] = commerce_paypal
 dependencies[] = commerce_search_api
 dependencies[] = commerce_message
+dependencies[] = eway_integration
+dependencies[] = eway_integration_commerce
+dependencies[] = eway_integration_commerce_dc
 
 
 ; openBiz modules.
 
-dependencies[] = eway_integration
-dependencies[] = eway_integration_commerce
-dependencies[] = eway_integration_commerce_dc
+dependencies[] = openbiz_components
+dependencies[] = openbiz_standard_page
+dependencies[] = openbiz_news
+dependencies[] = openbiz_blog
+dependencies[] = openbiz_event
+dependencies[] = openbiz_media_release
+dependencies[] = openbiz_product
+dependencies[] = openbiz_search
 
 
 ; System Requirements.
