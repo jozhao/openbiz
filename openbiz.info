@@ -38,6 +38,7 @@ dependencies[] = admin_views
 dependencies[] = admin_menu
 dependencies[] = adminimal_admin_menu
 dependencies[] = block_class
+dependencies[] = bigmenu
 dependencies[] = chosen
 dependencies[] = ctools
 dependencies[] = ckeditor
