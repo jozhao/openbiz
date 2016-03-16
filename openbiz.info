@@ -170,6 +170,7 @@ dependencies[] = commerce_checkout_progress
 dependencies[] = commerce_checkout_redirect
 dependencies[] = commerce_discount
 dependencies[] = commerce_discount_date
+dependencies[] = commerce_discount_usage
 dependencies[] = commerce_features
 dependencies[] = commerce_fancy_attributes
 dependencies[] = commerce_paypal
