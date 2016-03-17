@@ -93,6 +93,7 @@ dependencies[] = views_ui
 dependencies[] = views_content
 dependencies[] = views_data_export
 dependencies[] = votingapi
+dependencies[] = webform
 dependencies[] = xmlsitemap
 
 
