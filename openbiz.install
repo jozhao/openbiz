@@ -217,6 +217,7 @@ function _openbiz_install_basic_roles_perms() {
 
 /**
  * Set Adminimal as the Admin Theme
+ *
  * @TODO prepare openbiz theme
  */
 function _openbiz_install_default_themes() {
@@ -254,7 +255,7 @@ function _openbiz_install_default_blocks() {
     'weight',
     'region',
     'pages',
-    'cache'
+    'cache',
   ));
   foreach ($values as $record) {
     $query->values($record);
@@ -494,7 +495,7 @@ function openbiz_example_content_install() {
  *   Title/name of the module or function.
  * @param string $message
  *   Optional message to be output with function.
- * @param array $context
+ * @param array  $context
  *   Batch context data.
  */
 function openbiz_example_content_install_batch($type, $key, $name, $message, &$context) {
