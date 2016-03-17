@@ -451,6 +451,11 @@ function openbiz_default_content() {
       'type' => 'module',
       'key' => 'openbiz_blog_content',
     ),
+    1 => array(
+      'title' => st('OpenBiz News'),
+      'type' => 'module',
+      'key' => 'openbiz_news_content',
+    ),
   );
 }
 
