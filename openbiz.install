@@ -326,12 +326,27 @@ function _openbiz_install_menus() {
  * Clean up after install.
  */
 function _openbiz_install_cleanup() {
+  // Rebuild sitemap.
+  _openbiz_rebuild_sitemap();
   // Required by view_unpublished module.
   node_access_rebuild();
   // Clear cache.
   cache_clear_all();
   // Revert features.
   features_revert(array('openbiz_product' => array('commerce_autosku_patterns')));
+}
+
+/**
+ * Rebuilds the sitemap.xml.
+ */
+function _openbiz_rebuild_sitemap() {
+  if (module_exists('xmlsitemap')) {
+    module_load_include('generate.inc', 'xmlsitemap');
+    // Build a list of rebuildable link types.
+    $rebuild_types = xmlsitemap_get_rebuildable_link_types();
+    // Run the batch process.
+    xmlsitemap_run_unprogressive_batch('xmlsitemap_rebuild_batch', $rebuild_types, TRUE);
+  }
 }
 
 /**
@@ -354,10 +369,161 @@ function _openbiz_set_theme($target_theme) {
 }
 
 /**
+ * Implements hook_install_tasks().
+ */
+function openbiz_install_tasks($install_state) {
+  $task = array();
+
+  $openbiz_example_content_batch = variable_get('openbiz_example_content_batch', FALSE);
+
+  $task['openbiz_install_additional_options'] = array(
+    'display_name' => st('OpenBiz Example'),
+    'display' => TRUE,
+    'type' => 'form',
+    'run' => INSTALL_TASK_RUN_IF_NOT_COMPLETED,
+  );
+  $task['openbiz_example_content_install'] = array(
+    'display_name' => st('Example content'),
+    'display' => FALSE,
+    'type' => 'batch',
+    'run' => $openbiz_example_content_batch ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
+  );
+  $task['_openbiz_install_cleanup'] = array(
+    'display_name' => st('Finish'),
+    'display' => FALSE,
+    'type' => 'normal',
+    'run' => INSTALL_TASK_RUN_IF_NOT_COMPLETED,
+  );
+
+  return $task;
+}
+
+/**
+ * Form callback for additional options install task.
+ */
+function openbiz_install_additional_options() {
+  set_time_limit(0);
+
+  $form = array();
+
+  drupal_set_title('Install example contents');
+
+  $form['default_content'] = array(
+    '#type' => 'fieldset',
+    '#title' => st('Example content'),
+  );
+
+  $form['default_content']['install'] = array(
+    '#type' => 'checkbox',
+    '#title' => st('Install example content'),
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st('Continue'),
+  );
+
+  return $form;
+}
+
+/**
+ * Submit handler.
+ *
+ * @ingroup forms
+ */
+function openbiz_install_additional_options_submit(&$form, &$form_state) {
+  // If user selects to install default content. Set var.
+  if ($form_state['values']['install']) {
+    variable_set('openbiz_example_content_batch', TRUE);
+  }
+
+  return FALSE;
+}
+
+/**
+ * Returns modules and functions to install default/example content.
+ */
+function openbiz_default_content() {
+  return array(
+    0 => array(
+      'title' => st('OpenBiz Blog'),
+      'type' => 'module',
+      'key' => 'openbiz_blog_content',
+    ),
+  );
+}
+
+/**
+ * Sets the Batch API array for batch processing.
+ */
+function openbiz_example_content_install() {
+  $operations = array();
+
+  $steps = openbiz_default_content();
+  foreach ($steps as $content) {
+    $operations[] = array(
+      'openbiz_example_content_install_batch',
+      array(
+        $content['type'],
+        $content['key'],
+        $content['title'],
+        isset($content['message']) ? $content['message'] : '',
+      ),
+    );
+  }
+
+  $batch = array(
+    'operations' => $operations,
+    'title' => st('Processing OpenBiz example content'),
+    'init_message' => st('Initializing'),
+    'error_message' => st('Error'),
+    'finished' => 'openbiz_example_content_install_finished',
+  );
+
+  return $batch;
+}
+
+/**
+ * Either enable module or run function for Example content batch install.
+ *
+ * @param string $type
+ *   Type of content either 'module' or 'function'.
+ * @param string $key
+ *   Name of module or function to enable/run.
+ * @param string $name
+ *   Title/name of the module or function.
+ * @param string $message
+ *   Optional message to be output with function.
+ * @param array $context
+ *   Batch context data.
+ */
+function openbiz_example_content_install_batch($type, $key, $name, $message, &$context) {
+  if ($type == 'module') {
+    module_enable(array($key), TRUE);
+    $context['results'][] = $key;
+    $context['message'] = st('Enabled %module content.', array('%module' => $name));
+  }
+  elseif ($type == 'function') {
+    call_user_func($key);
+    $context['results'][] = $key;
+    if ($message) {
+      $context['message'] = $message;
+    }
+  }
+}
+
+/**
+ * Performs any cleanup and output on completion of example content batch.
+ */
+function openbiz_example_content_install_finished($context) {
+  drupal_set_message('OpenBiz example content installed.');
+  drupal_set_message('OpenBiz sitemap has been rebuilt.');
+}
+
+/**
  * Implements hook_install_tasks_alter().
  */
 function openbiz_install_tasks_alter(&$tasks, $install_state) {
-
   // Set default site language to English.
   global $install_state;
   $install_state['parameters']['locale'] = 'en';
@@ -367,7 +533,7 @@ function openbiz_install_tasks_alter(&$tasks, $install_state) {
   $tasks['_openbiz_install_finished'] = $tasks['install_finished'];
   unset($tasks['install_finished']);
 
-  //_govcms_set_theme(OPENBIZ_INSTALL_DEFAULT_THEME);
+  //_openbiz_set_theme(OPENBIZ_INSTALL_DEFAULT_THEME);
 }
 
 /**

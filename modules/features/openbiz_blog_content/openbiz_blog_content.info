@@ -1,0 +1,15 @@
+name = OpenBiz Blog Content
+description = OpenBiz Blog Content
+core = 7.x
+package = OpenBiz Content
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = openbiz_blog
+dependencies[] = strongarm
+dependencies[] = uuid_features
+__drupal_alter_by_ref[][node][blog] = blog
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[uuid_node][] = 961f5ecd-cd7e-4071-afae-fbce57c79ee3
+features[uuid_node][] = db8ef6b7-6cde-4b86-98ca-0072cfe371a7

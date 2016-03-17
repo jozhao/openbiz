@@ -197,6 +197,7 @@ dependencies[] = openbiz_event
 dependencies[] = openbiz_media_release
 dependencies[] = openbiz_product
 dependencies[] = openbiz_search
+dependencies[] = openbiz_standard_page_content
 
 
 ; System Requirements.

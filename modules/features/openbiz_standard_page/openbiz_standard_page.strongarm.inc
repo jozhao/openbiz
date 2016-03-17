@@ -38,7 +38,8 @@ function openbiz_standard_page_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_page';
   $strongarm->value = array(
-    0 => 'main-menu',
+    0 => 'menu-footer-menu',
+    1 => 'main-menu',
   );
   $export['menu_options_page'] = $strongarm;
 
@@ -72,6 +73,13 @@ function openbiz_standard_page_strongarm() {
   $strongarm->name = 'node_submitted_page';
   $strongarm->value = 0;
   $export['node_submitted_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_page_pattern';
+  $strongarm->value = '[node:title]';
+  $export['pathauto_node_page_pattern'] = $strongarm;
 
   return $export;
 }
