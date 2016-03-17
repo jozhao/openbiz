@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the OpenBiz Components feature.
  */
+
+include_once 'openbiz_components.features.inc';
