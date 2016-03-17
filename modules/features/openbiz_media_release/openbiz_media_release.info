@@ -18,4 +18,3 @@ features[variable][] = menu_parent_media_release
 features[variable][] = node_options_media_release
 features[variable][] = node_preview_media_release
 features[variable][] = node_submitted_media_release
-features_exclude[field_base][body] = body

@@ -21,4 +21,3 @@ features[uuid_node][] = d2988556-b062-4dd9-8b5f-a1b1384a9a50
 features[uuid_node][] = d3584e20-07a5-47c2-be80-3faf6eac3875
 features[uuid_node][] = db8ef6b7-6cde-4b86-98ca-0072cfe371a7
 features[uuid_node][] = fc663b15-becf-410c-98c6-e1ab53e1a9ae
-features_exclude[variable][pathauto_node_blog_pattern] = pathauto_node_blog_pattern

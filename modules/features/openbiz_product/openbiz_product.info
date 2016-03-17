@@ -54,4 +54,3 @@ features[variable][] = menu_parent_product
 features[variable][] = node_options_product
 features[variable][] = node_preview_product
 features[variable][] = node_submitted_product
-features_exclude[field_base][body] = body
