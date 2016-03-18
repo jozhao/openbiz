@@ -28,6 +28,7 @@ features[variable][] = menu_parent_blog
 features[variable][] = node_options_blog
 features[variable][] = node_preview_blog
 features[variable][] = node_submitted_blog
+features[variable][] = pathauto_node_blog_pattern
 features[variable][] = pathauto_taxonomy_term_blog_category_pattern
 features[variable][] = pathauto_taxonomy_term_blog_tags_pattern
 features[views_view][] = openbiz_blog
