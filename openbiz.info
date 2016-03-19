@@ -61,6 +61,7 @@ dependencies[] = globalredirect
 dependencies[] = googleanalytics
 dependencies[] = inline_entity_form
 dependencies[] = insert
+dependencies[] = jquery_update
 dependencies[] = libraries
 dependencies[] = link
 dependencies[] = linkit
