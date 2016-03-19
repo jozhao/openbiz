@@ -83,6 +83,7 @@ dependencies[] = redirect
 dependencies[] = r4032login
 dependencies[] = strongarm
 dependencies[] = sharethis
+dependencies[] = taxonomy_menu
 dependencies[] = token
 dependencies[] = uuid
 dependencies[] = uuid_features
