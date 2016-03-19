@@ -1,28 +1,28 @@
 <?php
 /**
  * @file
- * openbiz_news.views_default.inc
+ * openbiz_media_release.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function openbiz_news_views_default_views() {
+function openbiz_media_release_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'openbiz_news';
-  $view->description = 'OpenBiz News';
+  $view->name = 'openbiz_media_release';
+  $view->description = 'OpenBiz Media Release';
   $view->tag = 'OpenBiz';
   $view->base_table = 'node';
-  $view->human_name = 'OpenBiz News';
+  $view->human_name = 'OpenBiz Media Release';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'OpenBiz News';
+  $handler->display->display_options['title'] = 'OpenBiz Media Release';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -30,6 +30,9 @@ function openbiz_news_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   /* Field: Content: Title */
@@ -56,15 +59,15 @@ function openbiz_news_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'news' => 'news',
+    'media_release' => 'media_release',
   );
 
-  /* Display: Page: News */
-  $handler = $view->new_display('page', 'Page: News', 'page_news');
-  $handler->display->display_options['display_description'] = 'Page: News';
-  $handler->display->display_options['path'] = 'news';
+  /* Display: Page:Media Release */
+  $handler = $view->new_display('page', 'Page:Media Release', 'page_media_release');
+  $handler->display->display_options['display_description'] = 'Page Media Release';
+  $handler->display->display_options['path'] = 'media-release';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'News';
+  $handler->display->display_options['menu']['title'] = 'Media Release';
   $handler->display->display_options['menu']['name'] = 'main-menu';
 
   /* Display: Feed */
@@ -72,12 +75,12 @@ function openbiz_news_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'rss/news.xml';
+  $handler->display->display_options['path'] = 'rss/media-release.xml';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'page' => 'page',
   );
-  $export['openbiz_news'] = $view;
+  $export['openbiz_media_release'] = $view;
 
   return $export;
 }

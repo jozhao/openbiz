@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OpenBiz Media Release Content feature.
+ */
+
+include_once 'openbiz_media_release_content.features.inc';
