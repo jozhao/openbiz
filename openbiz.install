@@ -447,16 +447,21 @@ function openbiz_install_additional_options_submit(&$form, &$form_state) {
 function openbiz_default_content() {
   return array(
     0 => array(
+      'title' => st('OpenBiz Standard Page Examples'),
+      'type' => 'module',
+      'key' => 'openbiz_standard_page_content',
+    ),
+    1 => array(
       'title' => st('OpenBiz Blog Examples'),
       'type' => 'module',
       'key' => 'openbiz_blog_content',
     ),
-    1 => array(
+    2 => array(
       'title' => st('OpenBiz News Examples'),
       'type' => 'module',
       'key' => 'openbiz_news_content',
     ),
-    2 => array(
+    3 => array(
       'title' => st('OpenBiz Media Release Examples'),
       'type' => 'module',
       'key' => 'openbiz_media_release_content',
@@ -505,14 +510,14 @@ function openbiz_example_content_install() {
  *   Title/name of the module or function.
  * @param string $message
  *   Optional message to be output with function.
- * @param array  $context
+ * @param array $context
  *   Batch context data.
  */
 function openbiz_example_content_install_batch($type, $key, $name, $message, &$context) {
   if ($type == 'module') {
     module_enable(array($key), TRUE);
     $context['results'][] = $key;
-    $context['message'] = st('Enabled %module content.', array('%module' => $name));
+    $context['message'] = st('Enabled %module.', array('%module' => $name));
   }
   elseif ($type == 'function') {
     call_user_func($key);
