@@ -53,7 +53,6 @@ function openbiz_product_strongarm() {
   $strongarm->name = 'node_options_product';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'revision',
   );
   $export['node_options_product'] = $strongarm;
 
@@ -70,6 +69,48 @@ function openbiz_product_strongarm() {
   $strongarm->name = 'node_submitted_product';
   $strongarm->value = 0;
   $export['node_submitted_product'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_product_pattern';
+  $strongarm->value = 'shop/[node:title]';
+  $export['pathauto_node_product_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_product_brand_pattern';
+  $strongarm->value = 'shop/brand/[term:name]';
+  $export['pathauto_taxonomy_term_product_brand_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_product_category_pattern';
+  $strongarm->value = 'shop/category/[term:name]';
+  $export['pathauto_taxonomy_term_product_category_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_product_color_pattern';
+  $strongarm->value = 'shop/colour/[term:name]';
+  $export['pathauto_taxonomy_term_product_color_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_product_size_pattern';
+  $strongarm->value = 'shop/size/[term:name]';
+  $export['pathauto_taxonomy_term_product_size_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_product_tags_pattern';
+  $strongarm->value = 'shop/tags/[term:name]';
+  $export['pathauto_taxonomy_term_product_tags_pattern'] = $strongarm;
 
   return $export;
 }

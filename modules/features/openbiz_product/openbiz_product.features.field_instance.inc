@@ -405,7 +405,7 @@ function openbiz_product_field_default_field_instances() {
     'field_name' => 'field_product_category',
     'label' => 'Product category',
     'product_catalog' => 1,
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
