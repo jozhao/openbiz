@@ -11,7 +11,7 @@ function openbiz_standard_page_content_uuid_features_default_content() {
   $nodes = array();
 
   $nodes[] = array(
-  'uid' => 1,
+  'uid' => 0,
   'title' => 'About Us',
   'log' => '',
   'status' => 1,
@@ -25,19 +25,19 @@ function openbiz_standard_page_content_uuid_features_default_content() {
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'a23167f1-c410-42c7-8e10-def23a62dc6c',
-  'revision_uid' => 1,
+  'revision_uid' => 0,
   'body' => array(),
   'path' => array(
     'pathauto' => 1,
   ),
-  'name' => 'admin',
+  'name' => '',
   'picture' => 0,
-  'data' => 'a:1:{s:7:"contact";i:1;}',
+  'data' => NULL,
   'pathauto_perform_alias' => FALSE,
   'date' => '2016-03-17 19:49:12 +1100',
 );
   $nodes[] = array(
-  'uid' => 1,
+  'uid' => 0,
   'title' => 'Disclaimer',
   'log' => '',
   'status' => 1,
@@ -51,19 +51,19 @@ function openbiz_standard_page_content_uuid_features_default_content() {
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'a91ea950-c9de-4328-a02a-25afd6b46334',
-  'revision_uid' => 1,
+  'revision_uid' => 0,
   'body' => array(),
   'path' => array(
     'pathauto' => 1,
   ),
-  'name' => 'admin',
+  'name' => '',
   'picture' => 0,
-  'data' => 'a:1:{s:7:"contact";i:1;}',
+  'data' => NULL,
   'pathauto_perform_alias' => FALSE,
   'date' => '2016-03-17 19:51:32 +1100',
 );
   $nodes[] = array(
-  'uid' => 1,
+  'uid' => 0,
   'title' => 'Privacy',
   'log' => '',
   'status' => 1,
@@ -77,14 +77,14 @@ function openbiz_standard_page_content_uuid_features_default_content() {
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'bedd7408-f7bf-4f27-84c2-c6ec38c98806',
-  'revision_uid' => 1,
+  'revision_uid' => 0,
   'body' => array(),
   'path' => array(
     'pathauto' => 1,
   ),
-  'name' => 'admin',
+  'name' => '',
   'picture' => 0,
-  'data' => 'a:1:{s:7:"contact";i:1;}',
+  'data' => NULL,
   'pathauto_perform_alias' => FALSE,
   'date' => '2016-03-17 19:50:35 +1100',
 );
