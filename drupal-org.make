@@ -31,7 +31,7 @@ projects[date][version] = "2.9"
 projects[ds][version] = "2.13"
 projects[diff][version] = "3.2"
 projects[disqus][version] = "1.12"
-projects[entity][version] = "1.6"
+projects[entity][version] = "1.7"
 projects[entitycache][version] = "1.5"
 projects[entityreference][version] = "1.1"
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
@@ -128,7 +128,7 @@ projects[xmlsitemap][version] = "2.2"
 projects[facetapi][version] = 1.5
 projects[facetapi][patch][] = "https://drupal.org/files/1616518-term_remove_link-24.patch"
 projects[facetapi][patch][2378693] = "https://www.drupal.org/files/issues/notice_undefined-2378693-3.patch"
-projects[search_api][version] = 1.16
+projects[search_api][version] = 1.17
 projects[search_api_db][version] = 1.5
 projects[search_api_page][version] = "1.2"
 projects[search_api_solr][version] = "1.9"
@@ -147,7 +147,7 @@ projects[l10n_update][version] = 2.0
 ; Security
 
 projects[captcha][version] = "1.3"
-projects[honeypot][version] = "1.21"
+projects[honeypot][version] = "1.22"
 projects[login_security][version] = "1.9"
 projects[logintoboggan][version] = "1.5"
 projects[password_policy][version] = "1.12"
