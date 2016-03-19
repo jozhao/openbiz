@@ -46,7 +46,6 @@ dependencies[] = ckeditor
 dependencies[] = crumbs
 dependencies[] = date
 dependencies[] = ds
-dependencies[] = diff
 dependencies[] = entity
 dependencies[] = entitycache
 dependencies[] = entityreference
