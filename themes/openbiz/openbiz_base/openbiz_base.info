@@ -8,18 +8,22 @@ core = 7.x
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
 
+regions[top] = Site top
+regions[navigation] = Navigation bar
 regions[header] = Header
 regions[help] = Help
-regions[page_top] = Page top
-regions[page_bottom] = Page bottom
 regions[highlighted] = Highlighted
 
-regions[featured] = Featured
 regions[content] = Content
+regions[featured] = Featured
 regions[sidebar_first] = Sidebar left
 regions[sidebar_second] = Sidebar right
 
 regions[footer] = Footer
+regions[bottom] = Site bottom
+
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Settings

@@ -1,0 +1,46 @@
+#site-bottom {
+  position: fixed;
+  z-index: 102;
+  bottom: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #eeeeee;
+  background: #fff;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  p {
+    vertical-align: middle;
+    text-align: left;
+  }
+  ul {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: block;
+      float: right;
+      margin-left: 0;
+      margin-right: 20px;
+      a {
+        color: #000;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  /* For general iPad layouts */
+  #site-bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    ul {
+      float: right;
+      li {
+        margin-left: 20px;
+        margin-right: 0;
+      }
+    }
+  }
+}
